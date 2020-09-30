@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <h1>Inputs Dinámicos</h1>
+
+    <table class="table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Componente</th>
+        <th scope="col">Solicitado</th>
+        <th scope="col">Entregado</th>
+        <th scope="col">Utilizado</th>
+        <th scope="col">Devuelto</th>
+        <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+        <th scope="row">1</th>
+        <td>Bateria</td>
+        <td><input type="number" class="form-control" value="0" name="solicitado[1]" id="solicitado-1" /></td>
+        <td><input type="number" class="form-control" value="0" name="entregado[1]" id="entregado-1" /></td>
+        <td><input type="number" class="form-control" value="0" name="utilizado[1]" id="utilizado-1" /></td>
+        <td><input type="number" class="form-control" value="0" name="devuelto[1]" id="devuelto-1" /></td>
+        <td><input type="number" class="form-control" value="0" name="total[1]" id="total-1" /></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Bateria</td>
+            <td><input type="number" class="form-control" value="0" name="solicitado[2]" id="solicitado-2" /></td>
+            <td><input type="number" class="form-control" value="0" name="entregado[2]" id="entregado-2" /></td>
+            <td><input type="number" class="form-control" value="0" name="utilizado[2]" id="utilizado-2" /></td>
+            <td><input type="number" class="form-control" value="0" name="devuelto[2]" id="devuelto-2" /></td>
+            <td><input type="number" class="form-control" value="0" name="total[2]" id="total-2" /></td>
+            </tr>     
+    </tbody>
+    </table>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+ 
+
+    <script>
+ 
+        $(":input").bind('keyup mouseup', function () {
+        
+            var idNumber = $(this).attr("id").split("-")[1].toString();
+                        
+            var entregado = $("#entregado-"+idNumber).val();
+            var utilizado = $("#utilizado-"+idNumber).val();
+            var devuelto = $("#devuelto-"+idNumber).val();
+            var total = entregado - utilizado - devuelto;
+
+            $("#total-"+idNumber).val(total);               
+
+        });
+        
+    </script>   
+
+
+
+</body>
+</html>
