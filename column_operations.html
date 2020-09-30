@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <div class="container-fluid">
+        <h1>Inputs Dinámicos</h1>
+
+        <table class="table table-hover" id="table">
+            <thead>
+                <tr>
+                <th style="width: 10%" scope="col" >#</th>
+                <th style="width: 80%" scope="col">Pregunta</th>
+                <th style="width: 10%" scope="col">Cumple</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Pregunta 1</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-1"data-toggle="toggle" data-on="SI" data-off="NO">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Pregunta 2</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-2" data-toggle="toggle" data-on="SI" data-off="NO">
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Pregunta 3</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-3" data-toggle="toggle" data-on="SI" data-off="NO">
+                    </td>
+                </tr>       
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Pregunta 3</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-4" data-toggle="toggle" data-on="SI" data-off="NO">
+                    </td>
+                </tr>   
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Pregunta 3</td>
+                    <td>
+                        <input type="checkbox" id="checkbox-5" data-toggle="toggle" data-on="SI" data-off="NO">
+                    </td>
+                </tr>      
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="2" style="text-align: right;"><strong>CALIFICACIÓN:</strong></td>
+                    <td>
+                        <input class="form-control" id="calificacion" type="text" readonly="readonly"/>
+                        <input type="number" id="real-1" class="form-control">
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <script>
+ 
+        $(":checkbox").change(function () {
+        
+            var idCheckBox = '#' + $(this).attr("id");
+
+            if($(idCheckBox).is(':checked')){
+                $(idCheckBox).val(1);
+            }else{
+                $(idCheckBox).val(0);
+            }
+            
+            var arr = $(":checkbox").length;
+            var cumple = document.querySelectorAll("input:checked").length;
+            var calificacion = cumple/arr*100;
+
+            $('#calificacion').val(calificacion);
+         
+        });
+        
+    </script>   
+
+
+
+</body>
+</html>
